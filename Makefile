@@ -162,7 +162,7 @@ conf:
 
 epics:
 	$(QUIET)echo "SSCAN=$(M_SSCAN)"                     > $(TOP)/$(EPICS_MODULE_SRC_PATH)/configure/RELEASE
-	$(QUIET)echo "SNCSEQ=$(M_SNCSEQ)"                   > $(TOP)/$(EPICS_MODULE_SRC_PATH)/configure/RELEASE
+	$(QUIET)echo "SNCSEQ=$(M_SNCSEQ)"                  >> $(TOP)/$(EPICS_MODULE_SRC_PATH)/configure/RELEASE
 	$(QUIET)echo "EPICS_BASE=$(COMMUNITY_EPICS_BASE)"  >> $(TOP)/$(EPICS_MODULE_SRC_PATH)/configure/RELEASE
 	$(QUIET)echo "INSTALL_LOCATION=$(M_CALC)"           > $(TOP)/$(EPICS_MODULE_SRC_PATH)/configure/CONFIG_SITE	
 	sudo -E bash -c "$(MAKE) -C $(EPICS_MODULE_SRC_PATH)"

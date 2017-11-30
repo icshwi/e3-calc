@@ -1,63 +1,104 @@
+#
+#  Copyright (c) 2017 - Present  European Spallation Source ERIC
+#
+#  The program is free software: you can redistribute
+#  it and/or modify it under the terms of the GNU General Public License
+#  as published by the Free Software Foundation, either version 2 of the
+#  License, or any newer version.
+#
+#  This program is distributed in the hope that it will be useful, but WITHOUT
+#  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+#  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+#  more details.
+#
+#  You should have received a copy of the GNU General Public License along with
+#  this program. If not, see https://www.gnu.org/licenses/gpl-2.0.txt
+#
+# Author  : Jeong Han Lee
+# email   : han.lee@esss.se
+# Date    : Wednesday, November 29 13:46:39 CET 2017
+# version : 0.0.1
 
 
-#where_am_I := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
+where_am_I := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
 include $(REQUIRE_TOOLS)/driver.makefile
 
-#APP:=modbusApp
-#APPDB:=$(APP)/Db
-#APPSRC:=$(APP)/src
+APP:=calcApp
+APPDB:=$(APP)/Db
+APPSRC:=$(APP)/src
 
-#USR_INCLUDES += -I$(where_am_I)/$(APPSRC)
+
+USR_INCLUDES += -I$(where_am_I)/$(APPSRC)
 
 #TEMPLATES += $(wildcard $(APPDB)/*.template)
 
 
-#SOURCES   += $(APPSRC)/modbusInterpose.c
-#SOURCES   += $(APPSRC)/drvModbusAsyn.c
-#DBDS      += $(APPSRC)/modbusSupport.dbd
-#HEADERS   += $(APPSRC)/drvModbusAsyn.h
+USR_CFLAGS   += -Wno-unused-variable
+USR_CFLAGS   += -Wno-unused-function
+USR_CFLAGS   += -Wno-unused-but-set-variable
+USR_CPPFLAGS += -Wno-unused-variable
+USR_CPPFLAGS += -Wno-unused-function
+USR_CPPFLAGS += -Wno-unused-but-set-variable
 
 
-# 
-#USR_CFLAGS   += -Wno-unused-variable
-#USR_CFLAGS   += -Wno-unused-function
-#USR_CPPFLAGS += -Wno-unused-variable
-#USR_CPPFLAGS += -Wno-unused-function
+HEADERS += $(APPSRC)/sCalcPostfix.h
+HEADERS += $(APPSRC)/aCalcPostfix.h
+HEADERS += swaitRecord.h
+HEADERS += sseqRecord.h
+HEADERS += aCalcoutRecord.h
+HEADERS += sCalcoutRecord.h
+HEADERS += transformRecord.h
 
-#
-#
-# The following lines must be updated according to your calc
-#
-# Examples...
-# 
-# USR_CFLAGS += -fPIC
-# USR_CFLAGS   += -DDEBUG_PRINT
-# USR_CPPFLAGS += -DDEBUG_PRINT
-# USR_CPPFLAGS += -DUSE_TYPED_RSET
-# USR_INCLUDES += -I/usr/include/libusb-1.0
-# USR_LDFLAGS += -lusb-1.0
 
-# USR_LDFLAGS += -L /opt/etherlab/lib
-# USR_LDFLAGS += -lethercat
-# USR_LDFLAGS += -Wl,-rpath=/opt/etherlab/lib
-#
-#
-# PCIAPP:= pciApp
-#
-# HEADERS += $(PCIAPP)/devLibPCI.h
-# HEADERS += $(PCIAPP)/devLibPCIImpl.h
+SOURCES += $(APPSRC)/sCalcPostfix.c
+SOURCES += $(APPSRC)/sCalcPerform.c
+SOURCES += $(APPSRC)/aCalcPostfix.c
+SOURCES += $(APPSRC)/aCalcPerform.c
 
-# SOURCES += $(wildcard $(PCIAPP)/devLib*.c)
-# SOURCES += $(PCIAPP)/pcish.c
-# SOURCES_Linux += $(PCIAPP)/os/Linux/devLibPCIOSD.c
+SOURCES += $(APPSRC)/calcUtil.c
+SOURCES += $(APPSRC)/myFreeListLib.c
+SOURCES += $(APPSRC)/devsCalcoutSoft.c
+SOURCES += $(APPSRC)/devaCalcoutSoft.c
+SOURCES += $(APPSRC)/subAve.c
+SOURCES += $(APPSRC)/switRecord.c
+SOURCES += $(APPSRC)/editSseq.st
+SOURCES += $(APPSRC)/interp.c
+SOURCES += $(APPSRC)/arrayTest.c
+SOURCES += $(APPSRC)/aCalcMonitorMem.c
 
-# DBDS += $(PCIAPP)/epicspci.dbd
+SOURCES += $(APPSRC)/swaitRecord.c
+SOURCES += $(APPSRC)/sseqRecord.c
+SOURCES += $(APPSRC)/aCalcoutRecord.c
+SOURCES += $(APPSRC)/sCalcoutRecord.c
+SOURCES += $(APPSRC)/transformRecord.c
 
-# MRMSHARED:= mrmShared
-# MRMSHAREDSRC:=$(MRMSHARED)/src
-# MRMSHAREDDB:=$(MRMSHARED)/Db
-# TEMPLATES += $(wildcard $(MRMSHAREDDB)/*.db)
-# TEMPLATES += $(wildcard $(MRMSHAREDDB)/*.template)
-# TEMPLATES += $(wildcard $(MRMSHAREDDB)/*.substitutions)
+
+DBDS += $(APPSRC)/calcSupport.dbd
+# DBDS += $(APPSRC)/sscanProgressSupport.dbd
+# Warning: skipping duplicate file menuSscan.dbd from command line
+# DBDS += $(APPSRC)/menuSscan.dbd
+
+vpath %.dbd   $(where_am_I)/$(APPSRC)
+
+
+transformRecord$(DEP): swaitRecord.h sseqRecord.h aCalcoutRecord.h sCalcoutRecord.h transformRecord.h
+
+USR_DBDFLAGS += -I . -I ..
+
+%.h: %.dbd
+	$(DBTORECORDTYPEH)  $(USR_DBDFLAGS) -o $@ $<
+
+
+#menuSscan.h: menuSscan.dbd
+#	$(DBTOMENUH) $(USR_DBDFLAGS) -o $@ $<
+
+
+
+
+
+#TEMPLATES += $(wildcard $(APPDB)/*.db)
+#TEMPLATES += $(wildcard $(APPDB)/*.template)
+#TEMPLATES += $(wildcard $(APPDB)/*.substitutions)
+
 
