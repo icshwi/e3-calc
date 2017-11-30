@@ -1,7 +1,13 @@
 # e3-calc
 
-Soft Dependency upon two modules:
 
-* SSCAN with the swait record
-* SNCSEQ with editSseq.st
+We enable the following two modules as default:
+
+* SSCAN  for the swait record
+* SNCSEQ for editSseq.st
+
+```
+make init
+make rebuild
+```
 

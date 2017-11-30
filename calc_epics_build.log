@@ -1,0 +1,187 @@
+sudo -E bash -c "make -C calc"
+make[1]: Entering directory '/home/jhlee/e3/tools/e3-calc/calc'
+make -C ./configure install 
+make[2]: Entering directory '/home/jhlee/e3/tools/e3-calc/calc/configure'
+perl -CSD /epics/bases/base-3.15.5/bin/linux-x86_64/makeMakefile.pl O.linux-x86_64 ../..
+mkdir O.Common
+make -C O.linux-x86_64 -f ../Makefile TOP=../.. \
+    T_A=linux-x86_64 install
+make[3]: Entering directory '/home/jhlee/e3/tools/e3-calc/calc/configure/O.linux-x86_64'
+Installing config file /epics/bases/base-3.15.5/epics-modules/calc/configure/RELEASE
+make[3]: Leaving directory '/home/jhlee/e3/tools/e3-calc/calc/configure/O.linux-x86_64'
+make[2]: Leaving directory '/home/jhlee/e3/tools/e3-calc/calc/configure'
+make -C ./calcApp install 
+make[2]: Entering directory '/home/jhlee/e3/tools/e3-calc/calc/calcApp'
+make -C ./src install 
+make[3]: Entering directory '/home/jhlee/e3/tools/e3-calc/calc/calcApp/src'
+perl -CSD /epics/bases/base-3.15.5/bin/linux-x86_64/makeMakefile.pl O.linux-x86_64 ../../..
+mkdir O.Common
+make -C O.linux-x86_64 -f ../Makefile TOP=../../.. \
+    T_A=linux-x86_64 install
+make[4]: Entering directory '/home/jhlee/e3/tools/e3-calc/calc/calcApp/src/O.linux-x86_64'
+perl -CSD /epics/bases/base-3.15.5/bin/linux-x86_64/dbdToRecordtypeH.pl   -I. -I.. -I../O.Common -I/epics/bases/base-3.15.5/epics-modules/calc/dbd -I/epics/bases/base-3.15.5/epics-modules/sscan/dbd -I/epics/bases/base-3.15.5/epics-modules/seq/dbd -I/epics/bases/base-3.15.5/dbd -o transformRecord.h ../transformRecord.dbd
+perl -CSD /epics/bases/base-3.15.5/bin/linux-x86_64/dbdToRecordtypeH.pl   -I. -I.. -I../O.Common -I/epics/bases/base-3.15.5/epics-modules/calc/dbd -I/epics/bases/base-3.15.5/epics-modules/sscan/dbd -I/epics/bases/base-3.15.5/epics-modules/seq/dbd -I/epics/bases/base-3.15.5/dbd -o sCalcoutRecord.h ../sCalcoutRecord.dbd
+perl -CSD /epics/bases/base-3.15.5/bin/linux-x86_64/dbdToRecordtypeH.pl   -I. -I.. -I../O.Common -I/epics/bases/base-3.15.5/epics-modules/calc/dbd -I/epics/bases/base-3.15.5/epics-modules/sscan/dbd -I/epics/bases/base-3.15.5/epics-modules/seq/dbd -I/epics/bases/base-3.15.5/dbd -o aCalcoutRecord.h ../aCalcoutRecord.dbd
+perl -CSD /epics/bases/base-3.15.5/bin/linux-x86_64/dbdToRecordtypeH.pl   -I. -I.. -I../O.Common -I/epics/bases/base-3.15.5/epics-modules/calc/dbd -I/epics/bases/base-3.15.5/epics-modules/sscan/dbd -I/epics/bases/base-3.15.5/epics-modules/seq/dbd -I/epics/bases/base-3.15.5/dbd -o sseqRecord.h ../sseqRecord.dbd
+perl -CSD /epics/bases/base-3.15.5/bin/linux-x86_64/dbdToRecordtypeH.pl   -I. -I.. -I../O.Common -I/epics/bases/base-3.15.5/epics-modules/calc/dbd -I/epics/bases/base-3.15.5/epics-modules/sscan/dbd -I/epics/bases/base-3.15.5/epics-modules/seq/dbd -I/epics/bases/base-3.15.5/dbd -o swaitRecord.h ../swaitRecord.dbd
+
+
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -MM -MF aCalcMonitorMem.d  ../aCalcMonitorMem.c
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -MM -MF arrayTest.d  ../arrayTest.c
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -MM -MF interp.d  ../interp.c
+preprocessing ../editSseq.st
+/usr/bin/gcc -x c -E  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux   -I. -I../O.Common -I. -I. -I.. -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        ../editSseq.st > editSseq.i
+compiling editSseq.i to C
+/epics/bases/base-3.15.5/epics-modules/seq/bin/linux-x86_64/snc     editSseq.i -o editSseq.c.tmp
+mv editSseq.c.tmp editSseq.c
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -MM -MF editSseq.d  editSseq.c
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -MM -MF swaitRecord.d  ../swaitRecord.c
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -MM -MF subAve.d  ../subAve.c
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -MM -MF sseqRecord.d  ../sseqRecord.c
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -MM -MF devaCalcoutSoft.d  ../devaCalcoutSoft.c
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -MM -MF aCalcoutRecord.d  ../aCalcoutRecord.c
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -MM -MF devsCalcoutSoft.d  ../devsCalcoutSoft.c
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -MM -MF sCalcoutRecord.d  ../sCalcoutRecord.c
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -MM -MF myFreeListLib.d  ../myFreeListLib.c
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -MM -MF calcUtil.d  ../calcUtil.c
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -MM -MF aCalcPerform.d  ../aCalcPerform.c
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -MM -MF aCalcPostfix.d  ../aCalcPostfix.c
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -MM -MF sCalcPerform.d  ../sCalcPerform.c
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -MM -MF sCalcPostfix.d  ../sCalcPostfix.c
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -MM -MF transformRecord.d  ../transformRecord.c
+perl -CSD /epics/bases/base-3.15.5/bin/linux-x86_64/mkmf.pl -m editSseq.st.d  .  ../compiler/gcc ../compiler/default .  ../os/Linux ../os/posix ../os/default ..  editSseq.i ../editSseq.st
+
+
+perl -CSD -MExtUtils::Command -e cat ../calcSupport_LOCAL.dbd ../calcSupport_withSSCAN.dbd ../calcSupport_withSNCSEQ.dbd > calcSupport.dbd
+
+
+Installing /epics/bases/base-3.15.5/epics-modules/calc/dbd/calcSupport.dbd
+
+
+perl -CSD -MExtUtils::Command -e cat ../calcSupport_LOCAL.dbd ../calcSupport_withSSCAN.dbd ../calcSupport_withSNCSEQ.dbd > calc.dbd
+
+
+Installing /epics/bases/base-3.15.5/epics-modules/calc/dbd/calc.dbd
+
+
+Installing generated generic include file /epics/bases/base-3.15.5/epics-modules/calc/include/transformRecord.h
+Installing generated generic include file /epics/bases/base-3.15.5/epics-modules/calc/include/sCalcoutRecord.h
+Installing generated generic include file /epics/bases/base-3.15.5/epics-modules/calc/include/aCalcoutRecord.h
+Installing generated generic include file /epics/bases/base-3.15.5/epics-modules/calc/include/sseqRecord.h
+Installing generated generic include file /epics/bases/base-3.15.5/epics-modules/calc/include/swaitRecord.h
+
+
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -c ../transformRecord.c
+
+
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -c ../sCalcPostfix.c
+
+
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -c ../sCalcPerform.c
+
+
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -c ../aCalcPostfix.c
+
+
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -c ../aCalcPerform.c
+
+
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -c ../calcUtil.c
+
+
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -c ../myFreeListLib.c
+
+
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -c ../sCalcoutRecord.c
+../sCalcoutRecord.c: In function ‘execOutput’:
+../sCalcoutRecord.c:780:3: warning: ‘post_event’ is deprecated (declared at /epics/bases/base-3.15.5/include/dbScan.h:53) [-Wdeprecated-declarations]
+   if (pcalc->oevt > 0) post_event((int)pcalc->oevt);
+   ^
+../sCalcoutRecord.c:787:4: warning: ‘post_event’ is deprecated (declared at /epics/bases/base-3.15.5/include/dbScan.h:53) [-Wdeprecated-declarations]
+    if (pcalc->oevt > 0) post_event((int)pcalc->oevt);
+    ^
+../sCalcoutRecord.c:797:4: warning: ‘post_event’ is deprecated (declared at /epics/bases/base-3.15.5/include/dbScan.h:53) [-Wdeprecated-declarations]
+    if (pcalc->oevt > 0) post_event((int)pcalc->oevt);
+    ^
+../sCalcoutRecord.c:753:7: warning: variable ‘status’ set but not used [-Wunused-but-set-variable]
+  long status;
+       ^
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -c ../devsCalcoutSoft.c
+
+
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -c ../aCalcoutRecord.c
+
+
+../aCalcoutRecord.c: In function ‘afterCalc’:
+../aCalcoutRecord.c:281:8: warning: variable ‘i’ set but not used [-Wunused-but-set-variable]
+  long  i, j;
+        ^
+../aCalcoutRecord.c: In function ‘execOutput’:
+../aCalcoutRecord.c:906:3: warning: ‘post_event’ is deprecated (declared at /epics/bases/base-3.15.5/include/dbScan.h:53) [-Wdeprecated-declarations]
+   if (pcalc->oevt > 0) post_event((int)pcalc->oevt);
+   ^
+../aCalcoutRecord.c:913:4: warning: ‘post_event’ is deprecated (declared at /epics/bases/base-3.15.5/include/dbScan.h:53) [-Wdeprecated-declarations]
+    if (pcalc->oevt > 0) post_event((int)pcalc->oevt);
+    ^
+../aCalcoutRecord.c:923:4: warning: ‘post_event’ is deprecated (declared at /epics/bases/base-3.15.5/include/dbScan.h:53) [-Wdeprecated-declarations]
+    if (pcalc->oevt > 0) post_event((int)pcalc->oevt);
+    ^
+../aCalcoutRecord.c:893:8: warning: variable ‘status’ set but not used [-Wunused-but-set-variable]
+  long  status;
+        ^
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -c ../devaCalcoutSoft.c
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -c ../sseqRecord.c
+../sseqRecord.c: In function ‘processCallback’:
+../sseqRecord.c:608:18: warning: variable ‘did_putCallback’ set but not used [-Wunused-but-set-variable]
+  int     status, did_putCallback=0;
+                  ^
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -c ../subAve.c
+../subAve.c: In function ‘SubAve’:
+../subAve.c:409:19: warning: variable ‘b’ set but not used [-Wunused-but-set-variable]
+     double m, mm, b, r2;
+                   ^
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -c ../swaitRecord.c
+../swaitRecord.c: In function ‘execOutput’:
+../swaitRecord.c:794:2: warning: ‘post_event’ is deprecated (declared at /epics/bases/base-3.15.5/include/dbScan.h:53) [-Wdeprecated-declarations]
+  if (pwait->oevt > 0) {post_event((int)pwait->oevt);}
+  ^
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -c editSseq.c
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -c ../interp.c
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -c ../arrayTest.c
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64 -fPIC -I. -I../O.Common -I. -I. -I.. -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -c ../aCalcMonitorMem.c
+/usr/bin/ar -rc    libcalc.a        transformRecord.o sCalcPostfix.o sCalcPerform.o aCalcPostfix.o aCalcPerform.o calcUtil.o myFreeListLib.o sCalcoutRecord.o devsCalcoutSoft.o aCalcoutRecord.o devaCalcoutSoft.o sseqRecord.o subAve.o swaitRecord.o editSseq.o interp.o arrayTest.o aCalcMonitorMem.o 
+/usr/bin/ranlib libcalc.a
+/usr/bin/g++ -o libcalc.so -shared -fPIC -Wl,-hlibcalc.so -L/epics/bases/base-3.15.5/epics-modules/calc/lib/linux-x86_64 -L/epics/bases/base-3.15.5/epics-modules/seq/lib/linux-x86_64 -L/epics/bases/base-3.15.5/epics-modules/sscan/lib/linux-x86_64 -L/epics/bases/base-3.15.5/lib/linux-x86_64 -Wl,-rpath,/epics/bases/base-3.15.5/epics-modules/calc/lib/linux-x86_64 -Wl,-rpath,/epics/bases/base-3.15.5/epics-modules/seq/lib/linux-x86_64 -Wl,-rpath,/epics/bases/base-3.15.5/epics-modules/sscan/lib/linux-x86_64 -Wl,-rpath,/epics/bases/base-3.15.5/lib/linux-x86_64           -rdynamic -m64            transformRecord.o sCalcPostfix.o sCalcPerform.o aCalcPostfix.o aCalcPerform.o calcUtil.o myFreeListLib.o sCalcoutRecord.o devsCalcoutSoft.o aCalcoutRecord.o devaCalcoutSoft.o sseqRecord.o subAve.o swaitRecord.o editSseq.o interp.o arrayTest.o aCalcMonitorMem.o    -lsscan -lseq -lpv -ldbRecStd -ldbCore -lca -lCom   -lpthread   -lreadline -lm -lrt -ldl -lgcc
+Installing shared library /epics/bases/base-3.15.5/epics-modules/calc/lib/linux-x86_64/libcalc.so
+Installing library /epics/bases/base-3.15.5/epics-modules/calc/lib/linux-x86_64/libcalc.a
+make[4]: Leaving directory '/home/jhlee/e3/tools/e3-calc/calc/calcApp/src/O.linux-x86_64'
+make[3]: Leaving directory '/home/jhlee/e3/tools/e3-calc/calc/calcApp/src'
+make -C ./Db install 
+make[3]: Entering directory '/home/jhlee/e3/tools/e3-calc/calc/calcApp/Db'
+perl -CSD /epics/bases/base-3.15.5/bin/linux-x86_64/makeMakefile.pl O.linux-x86_64 ../../..
+mkdir O.Common
+make -C O.linux-x86_64 -f ../Makefile TOP=../../.. \
+    T_A=linux-x86_64 install
+make[4]: Entering directory '/home/jhlee/e3/tools/e3-calc/calc/calcApp/Db/O.linux-x86_64'
+make[4]: Nothing to be done for 'install'.
+make[4]: Leaving directory '/home/jhlee/e3/tools/e3-calc/calc/calcApp/Db/O.linux-x86_64'
+make[3]: Leaving directory '/home/jhlee/e3/tools/e3-calc/calc/calcApp/Db'
+make[2]: Leaving directory '/home/jhlee/e3/tools/e3-calc/calc/calcApp'
+make -C ./tests install 
+make[2]: Entering directory '/home/jhlee/e3/tools/e3-calc/calc/tests'
+perl -CSD /epics/bases/base-3.15.5/bin/linux-x86_64/makeMakefile.pl O.linux-x86_64 ../..
+mkdir O.Common
+make -C O.linux-x86_64 -f ../Makefile TOP=../.. \
+    T_A=linux-x86_64 install
+make[3]: Entering directory '/home/jhlee/e3/tools/e3-calc/calc/tests/O.linux-x86_64'
+/usr/bin/g++  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../calcApp/src -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -MM -MF scalcTest.d  ../scalcTest.cpp
+/usr/bin/g++  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../calcApp/src -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -MM -MF acalcTest.d  ../acalcTest.cpp
+/usr/bin/g++  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../calcApp/src -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -c ../acalcTest.cpp
+/usr/bin/g++ -o acalcTest  -L/epics/bases/base-3.15.5/epics-modules/calc/lib/linux-x86_64 -L/epics/bases/base-3.15.5/lib/linux-x86_64 -Wl,-rpath,/epics/bases/base-3.15.5/epics-modules/calc/lib/linux-x86_64 -Wl,-rpath,/epics/bases/base-3.15.5/lib/linux-x86_64           -rdynamic -m64            acalcTest.o    -lcalc -ldbRecStd -ldbCore -lca -lCom   
+/usr/bin/g++  -D_GNU_SOURCE -D_DEFAULT_SOURCE            -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../calcApp/src -I/epics/bases/base-3.15.5/epics-modules/calc/include/compiler/gcc -I/epics/bases/base-3.15.5/epics-modules/calc/include/os/Linux -I/epics/bases/base-3.15.5/epics-modules/calc/include   -I/epics/bases/base-3.15.5/epics-modules/sscan/include   -I/epics/bases/base-3.15.5/epics-modules/seq/include -I/epics/bases/base-3.15.5/include/compiler/gcc -I/epics/bases/base-3.15.5/include/os/Linux -I/epics/bases/base-3.15.5/include        -c ../scalcTest.cpp
+/usr/bin/g++ -o scalcTest  -L/epics/bases/base-3.15.5/epics-modules/calc/lib/linux-x86_64 -L/epics/bases/base-3.15.5/lib/linux-x86_64 -Wl,-rpath,/epics/bases/base-3.15.5/epics-modules/calc/lib/linux-x86_64 -Wl,-rpath,/epics/bases/base-3.15.5/lib/linux-x86_64           -rdynamic -m64            scalcTest.o    -lcalc -ldbRecStd -ldbCore -lca -lCom   
+perl -CSD /epics/bases/base-3.15.5/bin/linux-x86_64/makeTestfile.pl acalcTest.t acalcTest
+perl -CSD /epics/bases/base-3.15.5/bin/linux-x86_64/makeTestfile.pl scalcTest.t scalcTest
+make[3]: Leaving directory '/home/jhlee/e3/tools/e3-calc/calc/tests/O.linux-x86_64'
+make[2]: Leaving directory '/home/jhlee/e3/tools/e3-calc/calc/tests'
+make[1]: Leaving directory '/home/jhlee/e3/tools/e3-calc/calc'
