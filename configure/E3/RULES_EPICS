@@ -20,11 +20,3 @@ epics:
 epics-clean:
 	$(SUDOBASH) "$(MAKE) -C $(E3_MODULE_SRC_PATH) clean"
 
-
-
-USR_CFLAGS   += -Wno-unused-variable
-USR_CFLAGS   += -Wno-unused-function
-USR_CFLAGS   += -Wno-unused-but-set-variable
-USR_CPPFLAGS += -Wno-unused-variable
-USR_CPPFLAGS += -Wno-unused-function
-USR_CPPFLAGS += -Wno-unused-but-set-variable
