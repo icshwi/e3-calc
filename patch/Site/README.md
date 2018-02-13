@@ -71,6 +71,15 @@ fsl linux cross compile failure, discussed through github pullrequests
 ```
 
 
-## How to apply the created patch to epics-base
+## How to apply/revert patch files to/from EPICS module 
 
-Makefile apply patch files according to its base version.
+### Apply patch files
+
+```
+make patch
+```
+### Revert patch files
+
+```
+make patchrevert
+```
