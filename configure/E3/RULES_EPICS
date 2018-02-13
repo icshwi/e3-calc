@@ -5,9 +5,9 @@
 
 
 epics:
-	$(QUIET)echo "SSCAN=$(M_SSCAN)"               > $(TOP)/$(E3_MODULE_SRC_PATH)/configure/RELEASE
-	$(QUIET)echo "SNCSEQ=$(M_SNCSEQ)"            >> $(TOP)/$(E3_MODULE_SRC_PATH)/configure/RELEASE
-	$(QUIET)echo "EPICS_BASE=$(EPICS_BASE)"      >> $(TOP)/$(E3_MODULE_SRC_PATH)/configure/RELEASE
+	$(QUIET)echo "SSCAN=$(M_SSCAN)"               > $(TOP)/$(E3_MODULE_SRC_PATH)/configure/RELEASE.local
+	$(QUIET)echo "SNCSEQ=$(M_SNCSEQ)"            >> $(TOP)/$(E3_MODULE_SRC_PATH)/configure/RELEASE.local
+	$(QUIET)echo "EPICS_BASE=$(EPICS_BASE)"      >> $(TOP)/$(E3_MODULE_SRC_PATH)/configure/RELEASE.local
 	$(QUIET)echo "INSTALL_LOCATION=$(M_CALC)"         > $(TOP)/$(E3_MODULE_SRC_PATH)/configure/CONFIG_SITE.local
 	$(QUIET)echo "USR_CFLAGS += -Wno-unused-variable" >> $(TOP)/$(E3_MODULE_SRC_PATH)/configure/CONFIG_SITE.local
 	$(QUIET)echo "USR_CFLAGS += -Wno-unused-function" >> $(TOP)/$(E3_MODULE_SRC_PATH)/configure/CONFIG_SITE.local

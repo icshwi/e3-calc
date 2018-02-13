@@ -11,3 +11,12 @@ make init
 make rebuild
 ```
 
+
+## EPICS community build
+If one would like to use FSL as CC, make patch is the mandatory step. 
+```
+make init
+make patch
+make epics
+make epics-clean
+```
