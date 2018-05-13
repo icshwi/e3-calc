@@ -24,6 +24,11 @@ where_am_I := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
 include $(E3_REQUIRE_TOOLS)/driver.makefile
 
+ifneq ($(strip $(SSCAN_DEP_VERSION)),)
+sscan_VERSION=$(SSCAN_DEP_VERSION)
+endif
+
+
 APP:=calcApp
 APPDB:=$(APP)/Db
 APPSRC:=$(APP)/src

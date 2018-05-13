@@ -4,6 +4,8 @@ EPICS_MODULE_TAG:=tags/R3-7
 #
 E3_MODULE_VERSION:=3.7.0
 
+SSCAN_DEP_VERSION:=1339922
+
 
 # ONLY IF this module has the sequencer dependency. However,
 # in most case, we don't need to enable the following line,
