@@ -1,4 +1,4 @@
 [submodule "calc"]
 	path = calc
 	url = https://github.com/epics-modules/calc
-	ignore = all
+	ignore = dirty
