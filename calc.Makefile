@@ -50,6 +50,7 @@ USR_CPPFLAGS += -Wno-unused-but-set-variable
 USR_CPPFLAGS += -DUSE_TYPED_RSET
 
 TEMPLATES += $(wildcard $(APPDB)/*.db)
+TEMPLATES += $(wildcard $(APPDB)/*.req)
 
 DBDINC_SRCS += $(APPSRC)/swaitRecord.c
 DBDINC_SRCS += $(APPSRC)/sseqRecord.c
