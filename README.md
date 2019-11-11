@@ -1,22 +1,17 @@
-# e3-calc
+e3-calc
+===
+ESS Site-specific EPICS module : calc
 
 
+## Dependency Plot
+
+|![calc dep](docs/calc.png)|
+| :---: |
+|**Figure 1** Depdendency Tree. |
+
+
+## Features
 We enable the following two modules as default:
 
 * SSCAN  for the swait record
 * SNCSEQ for editSseq.st
-
-```
-make init
-make rebuild
-```
-
-
-## EPICS community build
-If one would like to use FSL as CC, make patch is the mandatory step. 
-```
-make init
-make patch
-make epics
-make epics-clean
-```

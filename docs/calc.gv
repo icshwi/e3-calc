@@ -1,0 +1,10 @@
+digraph calc {
+node [shape=record];
+base [label="base 7.0.3"]
+require [label="require 3.1.1"]
+SEQUENCER [label="SEQUENCER 2.2.7"]
+SSCAN [label="SSCAN 2.11.3"]
+calc [label="calc 3.7.3"]
+base -> require -> { SEQUENCER,SSCAN } ->  {  calc  } 
+} 
+
